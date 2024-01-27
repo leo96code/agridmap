@@ -1,111 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
-	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image Upload and Model Selection</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #f7f7f7;
+    margin: 0;
+    padding: 20px;
+  }
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  .box {
+    border: 2px dashed green;
+    width: 100%;
+    max-width: 300px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.2s;
+  }
+  .box:hover {
+    background-color: #e9ffe9;
+  }
+  input[type="file"] {
+    display: none;
+  }
+  select {
+    margin-top: 20px;
+    padding: 10px;
+    width: 100%;
+    max-width: 300px;
+  }
+  button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: green;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  button:hover {
+    background-color: darkgreen;
+  }
+  @media (min-width: 640px) {
+    .box {
+      width: calc(50% - 10px);
+    }
+  }
+</style>
 </head>
-
 <body>
-	<form id="inputForm">
-		<div class="header">
-			<div class="header__grid">
-				<img class="header__logo" src="https://uploads-ssl.webflow.com/5f6bc60e665f54545a1e52a5/6143750f1177056d60fc52d9_roboflow_logomark_inference.png" alt="Roboflow Inference">
-				<div>
-					<label class="header__label" for="model">Model</label>
-					<input class="input" type="text" id="model" />
-				</div>
-				<div>
-					<label class="header__label" for="version">Version</label>
-					<input class="input" type="number" id="version" />
-				</div>
-				<div>
-					<label class="header__label" for="api_key">API Key</label>
-					<input class="input" type="text" id="api_key" />
-				</div>
-			</div>
-		</div>
-      
-		<div class="content">
-			<div class="content__grid">
-				<div class="col-12-s6-m4" id="method">
-					<label class="input__label">Upload Method</label>
-					<div>
-						<button data-value="upload" id="computerButton" class="bttn left fill active">Upload</button>
-						<button data-value="url" id="urlButton" class="bttn right fill">URL</button>
-					</div>
-				</div>
 
-				<div class="col-12-m8" id="fileSelectionContainer">
-					<label class="input__label" for="file">Select File</label>
-					<div class="flex">
-						<input class="input input--left flex-1" type="text" id="fileName" disabled />							
-						<button id="fileMock" class="bttn right active">Browse</button>
-					</div>
-					<input style="display: none;" type="file" id="file" />
-				</div>
+<div class="container">
+  <div class="box" id="imageBox">
+    <span>Choose or Drag and Drop Image</span>
+  </div>
+  <div class="box" id="resultBox">
+    <span>Result</span>
+  </div>
+</div>
 
-				<div class="col-12-m8" id="urlContainer">
-					<label class="input__label" for="file">Enter Image URL</label>
-					<div class="flex">
-						<input type="text" id="url" placeholder="https://path.to/your.jpg" class="input"/><br>
-					</div>
-				</div>
-        
-				<div class="col-12-m6">
-					<label class="input__label" for="classes">Filter Classes</label>
-					<input type="text" id="classes" placeholder="Enter class names" class="input"/><br>
-					<span class="text--small">Separate names with commas</span>
-				</div>
+<div style="text-align: center;">
+  <select id="modelSelect">
+    <option value="MB">MB</option>
+    <option value="Seg">Seg</option>
+    <option value="YoloV8">YoloV8</option>
+  </select>
+  <button id="processButton">Process Image</button>
+</div>
 
-				<div class="col-6-m3 relative">
-					<label class="input__label" for="confidence">Min Confidence</label>
-					<div>
-						<i class="fas fa-crown"></i>
-						<span class="icon">%</span>
-						<input type="number" id="confidence" value="50" max="100" accuracy="2" min="0" class="input input__icon"/></div>
-					</div>
-				<div class="col-6-m3 relative">
-					<label class="input__label" for="overlap">Max Overlap</label>
-					<div>
-						<i class="fas fa-object-ungroup"></i>
-						<span class="icon">%</span>
-						<input type="number" id="overlap" value="50" max="100" accuracy="2" min="0" class="input input__icon"/></div>
-				</div>
-				<div class="col-6-m3" id="format">
-					<label class="input__label">Inference Result</label>
-					<div>
-						<button id="imageButton" data-value="image" class="bttn left fill active">Image</button>
-						<button id="jsonButton" data-value="json" class="bttn right fill">JSON</button>
-					</div>
-				</div>
-				<div class="col-12 content__grid" id="imageOptions">
-					<div class="col-12-s6-m4" id="labels">
-						<label class="input__label">Labels</label>
-						<div>
-							<button class="bttn left active">Off</button>
-							<button data-value="on" class="bttn right">On</button>
-						</div>
-					</div>
-					<div class="col-12-s6-m4" id="stroke">
-						<label class="input__label">Stroke Width</label>
-						<div>
-							<button data-value="1" class="bttn left active">1px</button>
-							<button data-value="2" class="bttn">2px</button>
-							<button data-value="5" class="bttn">5px</button>
-							<button data-value="10" class="bttn right">10px</button>
-						</div>
-					</div>
-				</div>
-				<div class="col-12">
-					<button type="submit" value="Run Inference" class="bttn__primary">Run Inference</button>
-				</div>
-			</div>
-			<div class="result" id="resultContainer">
-				<div class="divider"></div>
-				<div class="result__header">
-					<h3 class="headline">Result</h3>
-					<a href="#">Copy Code</a>
-				</div>
-				<pre id="output" class="codeblock"/> here is your json </pre>
-			</div>
-		</div>
-	</form>
+<script>
+  // JavaScript for drag and drop and file selection
+  const imageBox = document.getElementById('imageBox');
+  imageBox.addEventListener('click', () => document.getElementById('imageInput').click());
+  imageBox.addEventListener('dragover', (event) => {
+    event.stopPropagation();
+    event.preventDefault();
+    event.dataTransfer.dropEffect = 'copy';
+    imageBox.style.borderColor = 'blue'; // Change border color on drag over
+  });
+  imageBox.addEventListener('dragleave', (event) => {
+    imageBox.style.borderColor = 'green'; // Reset border color on drag leave
+  });
+  imageBox.addEventListener('drop', (event) => {
+    event.stopPropagation();
+    event.preventDefault();
+    const files = event.dataTransfer.files;
+    document.getElementById('imageInput').files = files;
+    displayImage({ target: { files: files } }, 'imageBox');
+    imageBox.style.borderColor = 'green'; // Reset border color after drop
+  });
+
+  const resultBox = document.getElementById('resultBox');
+  document.getElementById('processButton').addEventListener('click', () => {
+    // This is where you would normally process the image using the selected model
+    if (imageBox.innerHTML.includes('img')) {
+      resultBox.innerHTML = imageBox.innerHTML; // For now, we just copy the content
+    }
+  });
+
+  function displayImage(event, boxId) {
+    const files = event.target.files;
+    if (files.length > 0) {
+      const file = files[0];
+      if (file.type.startsWith('image/')) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          document.getElementById(boxId).innerHTML = '<img src="' + e.target.result + '" style="max-width: 100%; max-height: 100%;">';
+        };
+        reader.readAsDataURL(file);
+      } else {
+        alert('Please select an image file.');
+      }
+    }
+  }
+  // Hidden file input to trigger on box click
+  document.body.insertAdjacentHTML('beforeend', '<input type="file" id="imageInput" onchange="displayImage(event, \'imageBox\')">');
+</script>
+
 </body>
+</html>
+
