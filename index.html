@@ -25,26 +25,35 @@
             border-radius: 50%;
             border: 4px solid white;
         }
-        .section {
-            margin: 40px auto;
-            max-width: 800px;
-            background: white;
+        .tabs {
+            display: flex;
+            justify-content: center;
+            padding-top: 20px;
+        }
+        .tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+            margin: 0 10px;
+        }
+        .tab:hover {
+            background-color: #ddd;
+        }
+        .tab-content {
+            display: none;
             padding: 20px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border: 1px solid #ccc;
+            border-top: none;
+            max-width: 800px;
+            margin: auto;
         }
-        .section-title {
-            font-size: 28px;
-            margin-bottom: 15px;
-            color: #333;
-            text-align: center;
-            border-bottom: 2px solid #4CAF50;
-            padding-bottom: 10px;
+        .active-tab {
+            display: block;
         }
-        a {
-            color: #4CAF50;
-        }
-        a:hover {
-            text-decoration: none;
+        .active {
+            background-color: #4CAF50;
+            color: white;
         }
         .contact-info {
             display: flex;
@@ -59,6 +68,7 @@
         .contact-info i {
             margin-right: 8px;
         }
+        /* Additional styles */
     </style>
 </head>
 <body>
@@ -72,24 +82,41 @@
         </div>
     </div>
 
-    <div class="section" id="skills">
-        <h2 class="section-title">Skills</h2>
-        <p><!-- List your skills here --></p>
+    <div class="tabs">
+        <div class="tab active" onclick="openTab(event, 'About')">About Me</div>
+        <div class="tab" onclick="openTab(event, 'Projects')">Projects</div>
+        <div class="tab" onclick="openTab(event, 'Publications')">Publications</div>
     </div>
 
-    <div class="section" id="experience">
-        <h2 class="section-title">Experience</h2>
-        <p><!-- Add your experience here --></p>
+    <div id="About" class="tab-content active-tab">
+        <h2>About Me</h2>
+        <p><!-- About me content --></p>
     </div>
 
-    <div class="section" id="academics">
-        <h2 class="section-title">Academics</h2>
-        <p><!-- Add your academic background here --></p>
+    <div id="Projects" class="tab-content">
+        <h2>Projects</h2>
+        <p><!-- Projects content --></p>
     </div>
 
-    <div class="section" id="activities">
-        <h2 class="section-title">Co-curricular/Volunteer Activities</h2>
-        <p><!-- Add your activities here --></p>
+    <div id="Publications" class="tab-content">
+        <h2>Publications</h2>
+        <p><!-- Publications content --></p>
     </div>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tab");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
 </body>
 </html>
