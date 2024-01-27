@@ -2,6 +2,8 @@
 <html>
 <head>
     <title>Muhammad Jawad Bashir - Personal Website</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -44,15 +46,30 @@
         a:hover {
             text-decoration: none;
         }
-        /* Add more styles as needed */
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .contact-info a {
+            text-decoration: none;
+            color: white;
+            margin: 0 10px;
+        }
+        .contact-info i {
+            margin-right: 8px;
+        }
     </style>
 </head>
 <body>
     <div class="header">
-        <img src="https://raw.githubusercontent.com/leo96code/agridmap/main/c7074904-2768-40a6-86fe-8f615771dbae.jpg" alt="Muhammad Jawad Bashir">
+        <img src="path_to_your_image.jpg" alt="Muhammad Jawad Bashir">
         <h1>Muhammad Jawad Bashir</h1>
-        <p>Email: mbashir.msds20seecs@seecs.edu.pk | Phone: +923367213924</p>
-        <p>LinkedIn: <a href="https://linkedin.com/in/mjawadbashir">mjawadbashir</a></p>
+        <div class="contact-info">
+            <a href="mailto:mbashir.msds20seecs@seecs.edu.pk"><i class="fas fa-envelope"></i>Email</a>
+            <a href="tel:+923367213924"><i class="fas fa-phone"></i>Phone</a>
+            <a href="https://linkedin.com/in/mjawadbashir"><i class="fab fa-linkedin"></i>LinkedIn</a>
+        </div>
     </div>
 
     <div class="section" id="skills">
