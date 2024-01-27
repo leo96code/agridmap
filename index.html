@@ -1,132 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Image Upload and Model Selection</title>
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    background: #f7f7f7;
-    margin: 0;
-    padding: 20px;
-  }
-  .container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-  }
-  .box {
-    border: 2px dashed green;
-    width: 100%;
-    max-width: 300px;
-    height: 300px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: background-color 0.2s;
-  }
-  .box:hover {
-    background-color: #e9ffe9;
-  }
-  input[type="file"] {
-    display: none;
-  }
-  select {
-    margin-top: 20px;
-    padding: 10px;
-    width: 100%;
-    max-width: 300px;
-  }
-  button {
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: green;
-    color: white;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.2s;
-  }
-  button:hover {
-    background-color: darkgreen;
-  }
-  @media (min-width: 640px) {
-    .box {
-      width: calc(50% - 10px);
-    }
-  }
-</style>
+    <title>Muhammad Jawad Bashir - Personal Website</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            color: #444;
+            background-color: #f0f0f0;
+        }
+        .header {
+            background-color: #4CAF50; /* Adjust the color to match your preference */
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+        }
+        .header img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid white;
+        }
+        .section {
+            margin: 40px auto;
+            max-width: 800px;
+            background: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .section-title {
+            font-size: 28px;
+            margin-bottom: 15px;
+            color: #333;
+            text-align: center;
+            border-bottom: 2px solid #4CAF50;
+            padding-bottom: 10px;
+        }
+        a {
+            color: #4CAF50;
+        }
+        a:hover {
+            text-decoration: none;
+        }
+        /* Add more styles as needed */
+    </style>
 </head>
 <body>
+    <div class="header">
+        <img src="path_to_your_image.jpg" alt="Muhammad Jawad Bashir">
+        <h1>Muhammad Jawad Bashir</h1>
+        <p>Email: mbashir.msds20seecs@seecs.edu.pk | Phone: +923367213924</p>
+        <p>LinkedIn: <a href="https://linkedin.com/in/mjawadbashir">mjawadbashir</a></p>
+    </div>
 
-<div class="container">
-  <div class="box" id="imageBox">
-    <span>Choose or Drag and Drop Image</span>
-  </div>
-  <div class="box" id="resultBox">
-    <span>Result</span>
-  </div>
-</div>
+    <div class="section" id="skills">
+        <h2 class="section-title">Skills</h2>
+        <p><!-- List your skills here --></p>
+    </div>
 
-<div style="text-align: center;">
-  <select id="modelSelect">
-    <option value="MB">MB</option>
-    <option value="Seg">Seg</option>
-    <option value="YoloV8">YoloV8</option>
-  </select>
-  <button id="processButton">Process Image</button>
-</div>
+    <div class="section" id="experience">
+        <h2 class="section-title">Experience</h2>
+        <p><!-- Add your experience here --></p>
+    </div>
 
-<script>
-  // JavaScript for drag and drop and file selection
-  const imageBox = document.getElementById('imageBox');
-  imageBox.addEventListener('click', () => document.getElementById('imageInput').click());
-  imageBox.addEventListener('dragover', (event) => {
-    event.stopPropagation();
-    event.preventDefault();
-    event.dataTransfer.dropEffect = 'copy';
-    imageBox.style.borderColor = 'blue'; // Change border color on drag over
-  });
-  imageBox.addEventListener('dragleave', (event) => {
-    imageBox.style.borderColor = 'green'; // Reset border color on drag leave
-  });
-  imageBox.addEventListener('drop', (event) => {
-    event.stopPropagation();
-    event.preventDefault();
-    const files = event.dataTransfer.files;
-    document.getElementById('imageInput').files = files;
-    displayImage({ target: { files: files } }, 'imageBox');
-    imageBox.style.borderColor = 'green'; // Reset border color after drop
-  });
+    <div class="section" id="academics">
+        <h2 class="section-title">Academics</h2>
+        <p><!-- Add your academic background here --></p>
+    </div>
 
-  const resultBox = document.getElementById('resultBox');
-  document.getElementById('processButton').addEventListener('click', () => {
-    // This is where you would normally process the image using the selected model
-    if (imageBox.innerHTML.includes('img')) {
-      resultBox.innerHTML = imageBox.innerHTML; // For now, we just copy the content
-    }
-  });
-
-  function displayImage(event, boxId) {
-    const files = event.target.files;
-    if (files.length > 0) {
-      const file = files[0];
-      if (file.type.startsWith('image/')) {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-          document.getElementById(boxId).innerHTML = '<img src="' + e.target.result + '" style="max-width: 100%; max-height: 100%;">';
-        };
-        reader.readAsDataURL(file);
-      } else {
-        alert('Please select an image file.');
-      }
-    }
-  }
-  // Hidden file input to trigger on box click
-  document.body.insertAdjacentHTML('beforeend', '<input type="file" id="imageInput" onchange="displayImage(event, \'imageBox\')">');
-</script>
-
+    <div class="section" id="activities">
+        <h2 class="section-title">Co-curricular/Volunteer Activities</h2>
+        <p><!-- Add your activities here --></p>
+    </div>
 </body>
 </html>
-
