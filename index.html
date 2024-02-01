@@ -23,12 +23,12 @@
             line-height: 1.6;
         }
 
-        /* Header styles */
-        .header {
+         .header {
+            position: relative; /* Enable absolute positioning inside header */
             background-color: #4CAF50; /* Primary color */
             color: white;
             text-align: center;
-            padding: 40px 0;
+            padding: 40px 0 70px 0; /* Add padding at the bottom for the tabs */
         }
 
         .header img {
@@ -38,24 +38,26 @@
             border: 4px solid white;
         }
 
-        /* Tab styles */
+        /* Style adjustments for tabs */
         .tabs {
+            position: absolute;
+            bottom: -30px; /* Adjust this value as needed to fit the design */
+            right: 10px;
             display: flex;
-            justify-content: center;
-            margin: 20px 0;
         }
 
         .tab {
-            background: #f9f9f9;
+            background: #4CAF50; /* Match the header background color */
             padding: 10px 20px;
             cursor: pointer;
-            border: 1px solid #ccc;
+            border: 1px solid white; /* Visible borders with header contrast */
             margin: 0 5px;
             transition: background 0.3s ease;
+            border-radius: 5px; /* Rounded corners for tabs */
         }
 
         .tab:hover, .tab.active {
-            background: #4CAF50;
+            background: #367c39; /* Slightly darker green on hover/active */
             color: white;
         }
 
@@ -98,7 +100,7 @@
         .experience-entry ul li {
             margin-bottom: 5px;
         }
-    </style>
+        </style>
 </head>
 <body>
     <div class="header">
@@ -106,14 +108,15 @@
         <h1>Muhammad Jawad Bashir</h1>
         <p>Email: mbashir.msds20seecs@seecs.edu.pk | Phone: +923367213924</p>
         <p>LinkedIn: <a href="https://linkedin.com/in/mjawadbashir" class="social-icon"><i class="fab fa-linkedin"></i>LinkedIn</a></p>
-    </div>
 
-    <div class="tabs">
-        <div class="tab active" onclick="openTab(event, 'About')">About Me</div>
-        <div class="tab" onclick="openTab(event, 'Projects')">Projects</div>
-        <div class="tab" onclick="openTab(event, 'Publications')">Publications</div>
-        <div class="tab" onclick="openTab(event, 'Experience')">Experience</div>
-        <div class="tab" onclick="openTab(event, 'Academics')">Academics</div>
+        <!-- Tabs placed inside the header and adjusted with 'position: absolute' -->
+        <div class="tabs">
+            <div class="tab active" onclick="openTab(event, 'About')">About Me</div>
+            <div class="tab" onclick="openTab(event, 'Projects')">Projects</div>
+            <div class="tab" onclick="openTab(event, 'Publications')">Publications</div>
+            <div class="tab" onclick="openTab(event, 'Experience')">Experience</div>
+            <div class="tab" onclick="openTab(event, 'Academics')">Academics</div>
+        </div>
     </div>
 
     <div id="About" class="tab-content active-tab">
