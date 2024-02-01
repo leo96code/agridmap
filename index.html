@@ -23,31 +23,27 @@
             line-height: 1.6;
         }
 
-         .header {
+        .header {
             position: relative; /* Enable absolute positioning inside header */
             background-color: #4CAF50; /* Primary color */
             color: white;
             text-align: center;
-            padding: 40px 0 70px 0; /* Add padding at the bottom for the tabs */
-        }
-
-        .header img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            border: 4px solid white;
+            padding: 40px 0 50px 0; /* Adjust bottom padding to accommodate tabs */
         }
 
         /* Style adjustments for tabs */
         .tabs {
             position: absolute;
-            bottom: -30px; /* Adjust this value as needed to fit the design */
-            right: 10px;
+            left: 50%; /* Center the tabs container */
+            bottom: -20px; /* Adjust this value as needed */
+            transform: translateX(-50%); /* Offset by half the width of the tabs container */
             display: flex;
+            padding: 0;
         }
 
         .tab {
-            background: #4CAF50; /* Match the header background color */
+            background: #f9f9f9;
+            color: #333;
             padding: 10px 20px;
             cursor: pointer;
             border: 1px solid white; /* Visible borders with header contrast */
