@@ -23,21 +23,30 @@
             line-height: 1.6;
         }
 
+        /* Header styles */
         .header {
-            position: relative; /* Enable absolute positioning inside header */
+            position: relative; /* Enable absolute positioning for the tabs */
             background-color: #4CAF50; /* Primary color */
             color: white;
             text-align: center;
-            padding: 40px 0 50px 0; /* Adjust bottom padding to accommodate tabs */
+            padding: 40px 0;
         }
 
-        /* Style adjustments for tabs */
+        .header img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid white;
+        }
+
+        /* Tab styles */
         .tabs {
             position: absolute;
-            left: 50%; /* Center the tabs container */
-            bottom: -20px; /* Adjust this value as needed */
-            transform: translateX(-50%); /* Offset by half the width of the tabs container */
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
             display: flex;
+            justify-content: center;
             padding: 0;
         }
 
@@ -96,14 +105,14 @@
         .experience-entry ul li {
             margin-bottom: 5px;
         }
-        </style>
+    </style>
 </head>
 <body>
     <div class="header">
         <img src="https://raw.githubusercontent.com/leo96code/jawad/main/c7074904-2768-40a6-86fe-8f615771dbae.jpg" alt="Muhammad Jawad Bashir">
         <h1>Muhammad Jawad Bashir</h1>
         <p>Email: mbashir.msds20seecs@seecs.edu.pk | Phone: +923367213924</p>
-        <p><a href="https://linkedin.com/in/mjawadbashir" class="social-icon"><i class="fab fa-linkedin"></i></a></p>
+        <p>LinkedIn: <a href="https://linkedin.com/in/mjawadbashir" class="social-icon"><i class="fab fa-linkedin"></i>LinkedIn</a></p>
 
         <!-- Tabs placed inside the header and adjusted with 'position: absolute' -->
         <div class="tabs">
