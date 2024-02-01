@@ -1,119 +1,91 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Muhammad Jawad Bashir - Personal Website</title>
-    <!-- Font Awesome for icons -->
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <style>
-        /* Add your CSS styles here */
-        /* Basic Reset */
-        body, h1, h2, h3, p, ul, li, a {
-            margin: 0;
-            padding: 0;
-            text-decoration: none;
-            list-style: none;
-        }
-
-        /* Body and global styles */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            color: #444;
             background-color: #f0f0f0;
-            line-height: 1.6;
         }
-
-        /* Header styles */
         .header {
-            background-color: #4CAF50; /* Primary color */
+            background-color: #4CAF50; /* Adjust the color to match your preference */
             color: white;
             text-align: center;
             padding: 40px 0;
         }
-
         .header img {
             width: 150px;
             height: 150px;
             border-radius: 50%;
             border: 4px solid white;
         }
-
-        /* Tab styles */
         .tabs {
             display: flex;
             justify-content: center;
-            margin: 20px 0;
+            padding-top: 20px;
         }
-
         .tab {
-            background: #f9f9f9;
             padding: 10px 20px;
             cursor: pointer;
             border: 1px solid #ccc;
-            margin: 0 5px;
-            transition: background 0.3s ease;
+            background-color: #f9f9f9;
+            margin: 0 10px;
         }
-
-        .tab:hover, .tab.active {
-            background: #4CAF50;
-            color: white;
+        .tab:hover {
+            background-color: #ddd;
         }
-
-        /* Content styles */
         .tab-content {
             display: none;
             padding: 20px;
-            background: white;
-            margin: 0 auto;
+            border: 1px solid #ccc;
+            border-top: none;
             max-width: 800px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin: auto;
         }
-
         .active-tab {
             display: block;
         }
-
-        /* Experience entry styles */
-        .experience-entry {
-            margin-bottom: 20px;
-            border-left: 5px solid #4CAF50;
-            padding: 10px 15px;
-            background: #e7e7e7;
+        .active {
+            background-color: #4CAF50;
+            color: white;
         }
-
-        .experience-entry h3 {
-            color: #333;
-            margin-bottom: 5px;
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
         }
-
-        .experience-entry p {
-            font-size: 0.9em;
-            margin-bottom: 10px;
+        .contact-info a {
+            text-decoration: none;
+            color: white;
+            margin: 0 10px;
         }
-
-        .experience-entry ul {
-            margin-left: 20px;
+        .contact-info i {
+            margin-right: 8px;
         }
-
-        .experience-entry ul li {
-            margin-bottom: 5px;
-        }
+        /* Additional styles */
     </style>
 </head>
 <body>
     <div class="header">
-        <img src="https://raw.githubusercontent.com/leo96code/agridmap/main/c7074904-2768-40a6-86fe-8f615771dbae.jpg" alt="Muhammad Jawad Bashir">
+        <img src="path_to_your_image.jpg" alt="Muhammad Jawad Bashir">
         <h1>Muhammad Jawad Bashir</h1>
-        <p>Email: mbashir.msds20seecs@seecs.edu.pk | Phone: +923367213924</p>
-        <p>LinkedIn: <a href="https://linkedin.com/in/mjawadbashir" class="social-icon"><i class="fab fa-linkedin"></i>LinkedIn</a></p>
+        <div class="contact-info">
+            <a href="mailto:mbashir.msds20seecs@seecs.edu.pk"><i class="fas fa-envelope"></i>Email</a>
+            <a href="tel:+923367213924"><i class="fas fa-phone"></i>Phone</a>
+            <a href="https://linkedin.com/in/mjawadbashir"><i class="fab fa-linkedin"></i>LinkedIn</a>
+        </div>
     </div>
 
     <div class="tabs">
         <div class="tab active" onclick="openTab(event, 'About')">About Me</div>
         <div class="tab" onclick="openTab(event, 'Projects')">Projects</div>
         <div class="tab" onclick="openTab(event, 'Publications')">Publications</div>
-        <div class="tab" onclick="openTab(event, 'Experience')">Experience</div>
-        <div class="tab" onclick="openTab(event, 'Academics')">Academics</div>
     </div>
 
     <div id="About" class="tab-content active-tab">
@@ -128,32 +100,7 @@
 
     <div id="Publications" class="tab-content">
         <h2>Publications</h2>
-        <p><!-- Publications content --></p<p></p>
-    </div>
-
-    <div id="Experience" class="tab-content">
-        <h2>Experience</h2>
-        <!-- Experience entry 1 -->
-        <div class="experience-entry">
-            <h3>Research Assistant (AI - Computer Vision)</h3>
-            <p>NCIL Lab, SEECs, NUST (2022-2023)</p>
-            <ul>
-                <li>Project: Multifaceted Crop Scouting using Industry 4.0 (PKR 74M – Funded by HEC)</li>
-                <li>Won PKR 1.0M in Pakistan Innovation Fund Competition – "CherrySorter"</li>
-                <li>Successfully Shortlisted and Presented Research Ideas at IOFS Hackathon23, and Nation Idea Bank.</li>
-                <li>UI Development & Deployment of CV Models on Jetson Nano - Agri-DMap</li>
-                <li>MS Thesis: Mungbean Crop Health Monitoring and Disease Mapping using Computer Vision</li>
-                <li>4 Publications (2 Under Review): Google Scholar, GitHub</li>
-            </ul>
-        </div>
-        <!-- Experience entry 2 -->
-        <!-- Add more experience entries here -->
-
-    </div>
-
-    <div id="Academics" class="tab-content">
-        <h2>Academics</h2>
-        <p><!-- Academics content --></p>
+        <p><!-- Publications content --></p>
     </div>
 
     <script>
@@ -170,9 +117,6 @@
             document.getElementById(tabName).style.display = "block";
             evt.currentTarget.classList.add("active");
         }
-
-        // Simulate click on default tab
-        document.querySelector('.tab.active').click();
     </script>
 </body>
 </html>
