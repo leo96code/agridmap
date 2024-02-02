@@ -30,6 +30,7 @@
             color: white;
             text-align: center;
             padding: 40px 0;
+            padding-bottom: 0; /* Remove bottom padding to allow tabs to sit directly below the green background */
         }
 
         .header img {
@@ -42,12 +43,12 @@
         /* Tab styles */
         .tabs {
             position: absolute;
-            bottom: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            justify-content: center;
-            padding: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: white; /* Tab background should be white to match the tabs */
+            border-top: 5px solid #f9f9f9; /* Border color to separate from header */
+            box-shadow: 0 -2px 5px rgba(0,0,0,0.1); /* Shadow to lift tabs off the page */
         }
 
         .tab {
@@ -65,7 +66,14 @@
             background: #367c39; /* Slightly darker green on hover/active */
             color: white;
         }
-
+        .name-and-contact {
+            display: inline-block; /* Align items next to each other */
+            padding-bottom: 20px; /* Space above the tabs */
+        }
+         .contact {
+            font-size: 0.8em; /* Smaller font size for contact details */
+            margin-top: 8px; /* Space between name and contact details */
+        }
 
         .contact-links {
             margin-top: 10px; /* Space between name and contact links */
@@ -124,14 +132,16 @@
     </style>
 </head>
 <body>
-    <div class="header">
-        <img src="https://raw.githubusercontent.com/leo96code/jawad/main/c7074904-2768-40a6-86fe-8f615771dbae.jpg" alt="Muhammad Jawad Bashir">
-        <h1>Muhammad Jawad Bashir</h1>
-        <div class="contact-links">
-            <p>Email: mbashir.msds20seecs@seecs.edu.pk</p> | 
-            <p>Phone: +923367213924</p> | 
-            <a href="https://linkedin.com/in/mjawadbashir" class="social-icon"><i class="fab fa-linkedin"></i> LinkedIn</a> | 
-            <a href="YOUR_GOOGLE_SCHOLAR_LINK_HERE" class="social-icon"><i class="ai ai-google-scholar"></i> Google Scholar</a>
+        <div class="header">
+        <div class="name-and-contact">
+            <img src="https://raw.githubusercontent.com/leo96code/jawad/main/c7074904-2768-40a6-86fe-8f615771dbae.jpg" alt="Muhammad Jawad Bashir">
+            <h1>Muhammad Jawad Bashir</h1>
+            <div class="contact">
+                Email: mbashir.msds20seecs@seecs.edu.pk | Phone: +923367213924
+                <br>
+                LinkedIn: <a href="https://linkedin.com/in/mjawadbashir" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                | Google Scholar: <a href="YOUR_GOOGLE_SCHOLAR_LINK" class="social-icon"><i class="ai ai-google-scholar"></i></a>
+            </div>
         </div>
 
         <!-- Tabs placed inside the header and adjusted with 'position: absolute' -->
