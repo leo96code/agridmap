@@ -22,14 +22,12 @@
             line-height: 1.6;
         }
 
-        /* Header styles */
         .header {
-            position: relative;
-            background-color: #4CAF50;
+            background-color: #4CAF50; /* Primary color */
             color: white;
             text-align: center;
-            padding-top: 40px;
-            padding-bottom: 100px; /* Increased bottom padding to accommodate the tabs */
+            padding: 40px 0 30px; /* Adjust bottom padding */
+            position: relative; /* For absolute positioning of tabs */
         }
 
         .header img {
@@ -37,28 +35,30 @@
             height: 150px;
             border-radius: 50%;
             border: 4px solid white;
+            margin-bottom: 10px; /* Space between image and text */
         }
 
-        .header p {
-            padding: 10px 20px; /* Give some padding around the text */
+        .header h1 {
+            margin-bottom: 5px; /* Space between name and contact information */
         }
 
-        .social-links {
+        /* Contact information styles */
+        .contact-info {
             position: absolute;
-            bottom: 60px; /* Position above the tabs */
+            bottom: 80px; /* Position from the bottom of the header */
             width: 100%;
             text-align: center;
         }
 
         /* Tab styles */
         .tabs {
-            position: absolute;
-            bottom: 10px;
-            left: 50%;
-            transform: translateX(-50%);
             display: flex;
             justify-content: center;
-            padding: 0;
+            position: absolute;
+            bottom: 0; /* Align to the bottom of the header */
+            left: 0;
+            right: 0;
+            margin: 0 auto;
         }
 
         .tab {
@@ -66,10 +66,10 @@
             color: #333;
             padding: 10px 20px;
             cursor: pointer;
-            border: 1px solid white;
+            border: 1px solid white; /* Visible borders */
             margin: 0 5px;
             transition: background 0.3s ease;
-            border-radius: 5px;
+            border-radius: 5px; /* Rounded corners for tabs */
         }
 
         .tab:hover, .tab.active {
@@ -120,21 +120,19 @@
 </head>
 <body>
     <div class="header">
-        <img src="https://raw.githubusercontent.com/leo96code/jawad/main/c7074904-2768-40a6-86fe-8f615771dbae.jpg" alt="Muhammad Jawad Bashir">
+        <img src="path_to_your_image.jpg" alt="Muhammad Jawad Bashir">
         <h1>Muhammad Jawad Bashir</h1>
-        
-        <div class="social-links">
+        <div class="contact-info">
             <p>Email: mbashir.msds20seecs@seecs.edu.pk</p>
             <p>Phone: +923367213924</p>
             <p>LinkedIn: <a href="https://linkedin.com/in/mjawadbashir" class="social-icon"><i class="fab fa-linkedin"></i>LinkedIn</a></p>
         </div>
-
         <div class="tabs">
             <div class="tab active" onclick="openTab(event, 'About')">About Me</div>
             <div class="tab" onclick="openTab(event, 'Projects')">Projects</div>
             <div class="tab" onclick="openTab(event, 'Publications')">Publications</div>
             <div class="tab" onclick="openTab(event, 'Experience')">Experience</div>
-            <div class"tab" onclick="openTab(event, 'Academics')">Academics</div>
+            <div class="tab" onclick="openTab(event, 'Academics')">Academics</div>
         </div>
     </div>
 
