@@ -66,6 +66,22 @@
             color: white;
         }
 
+
+        .contact-links {
+            margin-top: 10px; /* Space between name and contact links */
+        }
+
+        .contact-links p, .contact-links a {
+            display: inline-block; /* Align the contact items in one line */
+            margin-right: 15px; /* Spacing between contact items */
+            color: white; /* Text color for the links */
+        }
+
+        .contact-links a {
+            text-decoration: none; /* Remove underline from links */
+        }
+
+        
         /* Content styles */
         .tab-content {
             display: none;
@@ -111,8 +127,12 @@
     <div class="header">
         <img src="https://raw.githubusercontent.com/leo96code/jawad/main/c7074904-2768-40a6-86fe-8f615771dbae.jpg" alt="Muhammad Jawad Bashir">
         <h1>Muhammad Jawad Bashir</h1>
-        <p>Email: mbashir.msds20seecs@seecs.edu.pk | Phone: +923367213924</p>
-        <p>LinkedIn: <a href="https://linkedin.com/in/mjawadbashir" class="social-icon"><i class="fab fa-linkedin"></i>LinkedIn</a></p>
+        <div class="contact-links">
+            <p>Email: mbashir.msds20seecs@seecs.edu.pk</p> | 
+            <p>Phone: +923367213924</p> | 
+            <a href="https://linkedin.com/in/mjawadbashir" class="social-icon"><i class="fab fa-linkedin"></i> LinkedIn</a> | 
+            <a href="YOUR_GOOGLE_SCHOLAR_LINK_HERE" class="social-icon"><i class="ai ai-google-scholar"></i> Google Scholar</a>
+        </div>
 
         <!-- Tabs placed inside the header and adjusted with 'position: absolute' -->
         <div class="tabs">
