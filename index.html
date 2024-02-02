@@ -7,7 +7,6 @@
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <style>
-        /* Add your CSS styles here */
         /* Basic Reset */
         body, h1, h2, h3, p, ul, li, a {
             margin: 0;
@@ -25,11 +24,12 @@
 
         /* Header styles */
         .header {
-            position: relative; /* Enable absolute positioning for the tabs */
-            background-color: #4CAF50; /* Primary color */
+            position: relative;
+            background-color: #4CAF50;
             color: white;
             text-align: center;
-            padding: 40px 0;
+            padding-top: 40px;
+            padding-bottom: 100px; /* Increased bottom padding to accommodate the tabs */
         }
 
         .header img {
@@ -37,6 +37,17 @@
             height: 150px;
             border-radius: 50%;
             border: 4px solid white;
+        }
+
+        .header p {
+            padding: 10px 20px; /* Give some padding around the text */
+        }
+
+        .social-links {
+            position: absolute;
+            bottom: 60px; /* Position above the tabs */
+            width: 100%;
+            text-align: center;
         }
 
         /* Tab styles */
@@ -55,14 +66,14 @@
             color: #333;
             padding: 10px 20px;
             cursor: pointer;
-            border: 1px solid white; /* Visible borders with header contrast */
+            border: 1px solid white;
             margin: 0 5px;
             transition: background 0.3s ease;
-            border-radius: 5px; /* Rounded corners for tabs */
+            border-radius: 5px;
         }
 
         .tab:hover, .tab.active {
-            background: #367c39; /* Slightly darker green on hover/active */
+            background: #367c39;
             color: white;
         }
 
@@ -111,16 +122,19 @@
     <div class="header">
         <img src="https://raw.githubusercontent.com/leo96code/jawad/main/c7074904-2768-40a6-86fe-8f615771dbae.jpg" alt="Muhammad Jawad Bashir">
         <h1>Muhammad Jawad Bashir</h1>
-        <p>Email: mbashir.msds20seecs@seecs.edu.pk | Phone: +923367213924</p>
-        <p>LinkedIn: <a href="https://linkedin.com/in/mjawadbashir" class="social-icon"><i class="fab fa-linkedin"></i>LinkedIn</a></p>
+        
+        <div class="social-links">
+            <p>Email: mbashir.msds20seecs@seecs.edu.pk</p>
+            <p>Phone: +923367213924</p>
+            <p>LinkedIn: <a href="https://linkedin.com/in/mjawadbashir" class="social-icon"><i class="fab fa-linkedin"></i>LinkedIn</a></p>
+        </div>
 
-        <!-- Tabs placed inside the header and adjusted with 'position: absolute' -->
         <div class="tabs">
             <div class="tab active" onclick="openTab(event, 'About')">About Me</div>
             <div class="tab" onclick="openTab(event, 'Projects')">Projects</div>
             <div class="tab" onclick="openTab(event, 'Publications')">Publications</div>
             <div class="tab" onclick="openTab(event, 'Experience')">Experience</div>
-            <div class="tab" onclick="openTab(event, 'Academics')">Academics</div>
+            <div class"tab" onclick="openTab(event, 'Academics')">Academics</div>
         </div>
     </div>
 
@@ -136,7 +150,7 @@
 
     <div id="Publications" class="tab-content">
         <h2>Publications</h2>
-        <p><!-- Publications content --></p<p></p>
+        <p><!-- Publications content --></p>
     </div>
 
     <div id="Experience" class="tab-content">
